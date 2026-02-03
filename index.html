@@ -2,86 +2,54 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Login System</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+    <title>Login</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
         body {
-            min-height: 100vh;
+            font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-image: url(background.jpg);
-           
         }
 
         .login-box {
-            width: 360px;
-            padding: 40px;
-            background: rgba(255,255,255,0.08);
-            backdrop-filter: blur(15px);
-            border-radius: 16px;
-            box-shadow: 0 0 30px rgba(0,255,255,0.2);
+            background: #fff;
+            padding: 30px;
+            width: 320px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,.3);
         }
 
         h2 {
             text-align: center;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        p {
-            text-align: center;
-            color: #ccc;
-            margin-bottom: 30px;
-            font-size: 14px;
+            margin-bottom: 20px;
         }
 
         input {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: none;
-            border-radius: 10px;
-            background: rgba(255,255,255,0.15);
-            color: #fff;
-        }
-
-        input::placeholder {
-            color: #bbb;
+            padding: 10px;
+            margin: 10px 0;
         }
 
         button {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
+            background: #187E5F;
+            color: white;
             border: none;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #00f260, #0575e6);
-            color: #fff;
-            font-weight: 600;
             cursor: pointer;
+            border-radius: 5px;
         }
 
         button:hover {
-            opacity: 0.85;
+            background: #145f49;
         }
 
         .error {
-            color: #ff5252;
+            color: red;
             text-align: center;
             margin-top: 10px;
-            display: none;
-            font-size: 13px;
         }
     </style>
 </head>
@@ -89,16 +57,12 @@
 
 <div class="login-box">
     <h2>Login</h2>
-    <p>Gunakan akun demo</p>
 
     <input type="text" id="username" placeholder="Username">
     <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Masuk</button>
 
-    <button onclick="login()">Login</button>
-
-    <div class="error" id="error">
-        Username atau password salah
-    </div>
+    <div id="error" class="error"></div>
 </div>
 
 <script>
