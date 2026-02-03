@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 230px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(15px);
+            padding: 30px 20px;
+        }
+
+        .sidebar h2 {
+            color: #00e5ff;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 12px 15px;
+            color: #cfd8dc;
+            text-decoration: none;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: linear-gradient(135deg, #00f260, #0575e6);
+            color: #fff;
+        }
+
+        .main {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .user-box {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 16px;
+            border-radius: 12px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(0,255,255,0.15);
+        }
+
+        .card h3 {
+            color: #00e5ff;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .card p {
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        .logout {
+            margin-top: 40px;
+            background: #ff5252;
+            border: none;
+            padding: 12px 18px;
+            color: #fff;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="sidebar">
+    <h2>MySystem</h2>
+    <a href="#">Dashboard</a>
+    <a href="#">Profil</a>
+    <a href="#">Data</a>
+    <a href="#">Pengaturan</a>
+</div>
+
+<div class="main">
+    <div class="header">
+        <h1>Dashboard</h1>
+        <div class="user-box">
+            👤 <span id="username"></span>
+        </div>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Status Login</h3>
+            <p>Aktif</p>
+        </div>
+        <div class="card">
+            <h3>Role</h3>
+            <p>Admin</p>
+        </div>
+        <div class="card">
+            <h3>Notifikasi</h3>
+            <p>3</p>
+        </div>
+    </div>
+
+    <button class="logout" onclick="logout()">Logout</button>
+    
+</div>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Login System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url(background.jpg);
+           
+        }
+
+        .login-box {
+            width: 360px;
+            padding: 40px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            box-shadow: 0 0 30px rgba(0,255,255,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        p {
+            text-align: center;
+            color: #ccc;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+        }
+
+        input::placeholder {
+            color: #bbb;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #00f260, #0575e6);
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        .error {
+            color: #ff5252;
+            text-align: center;
+            margin-top: 10px;
+            display: none;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-box">
+    <h2>Login</h2>
+    <p>Gunakan akun demo</p>
+
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+
+    <div class="error" id="error">
+        Username atau password salah
+    </div>
+</div>
+
+<script>
+    function login() {
+        // Username & password yang benar
+        const uname = "admin";
+        const pass = "12345";
+
+        // Ambil input user
+        let inputUname = document.getElementById("username").value;
+        let inputPass = document.getElementById("password").value;
+
+        // Validasi
+        if (inputUname === uname && inputPass === pass) {
+            window.location.href = "dashboard.html";
+        } else {
+            document.getElementById("error").innerText =
+                "Username atau password salah!";
+        }
+    }
+</script>
+
+</body>
+</html>
